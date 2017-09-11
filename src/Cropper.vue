@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-9">
           <div class="image-container">
-            <img id="avatar-image" src="./images/keroro.jpg" alt="上傳圖片">
+            <img id="avatar-image" src="images/keroro.jpg" alt="上傳圖片">
             <input type="file" id="upload-image" class="hidden" accept="image" @change="changeImage">
             <label for="upload-image" class="btn">上傳圖片</label>
           </div>
@@ -32,7 +32,7 @@
         <div class="col-md-12">
           <div class="frame-list">
             <div class="frame-item">
-              <img src="./images/frame_01.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_01.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>世大運 - 自己的同學自己挺</li>
                 <li><a href="https://www.facebook.com/dcard.tw/" target="_blank">Dcard</a> 建立</li>
@@ -40,7 +40,7 @@
               <button type="button" class="btn" @click="cropImage(0)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_02.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_02.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>世大運 - 自己的同學自己挺</li>
                 <li><a href="https://www.facebook.com/dcard.tw/" target="_blank">Dcard</a> 建立</li>
@@ -48,7 +48,7 @@
               <button type="button" class="btn" @click="cropImage(1)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_03.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_03.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>Cherng 驚嚇</li>
                 <li><a href="https://www.facebook.com/cherng.y/" target="_blank">Cherng</a> 建立</li>
@@ -56,7 +56,7 @@
               <button type="button" class="btn" @click="cropImage(2)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_04.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_04.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>好人信的大頭框</li>
                 <li><a href="https://www.facebook.com/goodman5566/" target="_blank">好人信的生活日常</a> 建立</li>
@@ -64,7 +64,7 @@
               <button type="button" class="btn" @click="cropImage(3)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_05.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_05.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>UGLYZOO</li>
                 <li><a href="https://www.facebook.com/Uglilybook/" target="_blank">醜臉書</a> 建立</li>
@@ -72,7 +72,7 @@
               <button type="button" class="btn" @click="cropImage(4)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_06.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_06.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>我是奧利佛</li>
                 <li><a href="https://www.facebook.com/Uglilybook/" target="_blank">醜臉書</a> 建立</li>
@@ -80,7 +80,7 @@
               <button type="button" class="btn" @click="cropImage(5)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_07.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_07.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>你，渴望力量嗎？</li>
                 <li><a href="#" target="_blank">Tetsuko Wang</a> 建立</li>
@@ -88,7 +88,7 @@
               <button type="button" class="btn" @click="cropImage(6)" v-scroll-to="'#step-3'">套用</button>
             </div>
             <div class="frame-item">
-              <img src="./images/frame_08.png" alt="" class="frame" widtzh="200">
+              <img src="images/frame_08.png" alt="" class="frame" widtzh="200">
               <ul>
                 <li>其實我不是胖 我只是懶得瘦</li>
                 <li><a href="https://www.facebook.com/FunkyLook.Shop/" target="_blank">FunkyLook</a> 建立</li>
@@ -151,9 +151,9 @@ export default {
       localUploadUrl: '',
       frameIndex: 0,
       frameSrcAry: [
-        './images/frame_01.png', './images/frame_02.png', './images/frame_03.png',
-        './images/frame_04.png', './images/frame_05.png', './images/frame_06.png',
-        './images/frame_07.png', './images/frame_08.png'
+        'images/frame_01.png', 'images/frame_02.png', 'images/frame_03.png',
+        'images/frame_04.png', 'images/frame_05.png', 'images/frame_06.png',
+        'images/frame_07.png', 'images/frame_08.png'
       ],
       frameImageAry: [],
       uploadImage: new Image(),
