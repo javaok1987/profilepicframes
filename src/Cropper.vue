@@ -151,9 +151,9 @@ export default {
       localUploadUrl: '',
       frameIndex: 0,
       frameSrcAry: [
-        './dist/images/frame_01.png', './dist/images/frame_02.png', './dist/images/frame_03.png',
-        './dist/images/frame_04.png', './dist/images/frame_05.png', './dist/images/frame_06.png',
-        './dist/images/frame_07.png', './dist/images/frame_08.png'
+        './images/frame_01.png', './images/frame_02.png', './images/frame_03.png',
+        './images/frame_04.png', './images/frame_05.png', './images/frame_06.png',
+        './images/frame_07.png', './images/frame_08.png'
       ],
       frameImageAry: [],
       uploadImage: new Image(),
