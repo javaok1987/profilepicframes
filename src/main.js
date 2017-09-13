@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import Cropper from './Cropper.vue'
+import App from './App.vue'
+
 new Vue({
   el: '#app',
-  render: h => h(Cropper)
+  render: h => h(App)
 })
