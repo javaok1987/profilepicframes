@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <a v-if="botton.defaultDownload" class="btn download" :href="image.default" download="cropped.jpg">Download</a>
+          <a v-if="botton.defaultDownload" class="btn download" :href="image.default" download="profile-picture.jpg">Download</a>
           <div v-if="botton.customDownload">
             <label for="">
               <input type="text" placeholder="建立文字" v-model="inputTextValue" maxlength="10"> 可調整圖片位置
@@ -305,7 +305,7 @@ export default {
         canvas.width = this.custom.inputText.offsetWidth + 10;
         canvas.height = this.custom.inputText.offsetHeight;
 
-        context.font = 'bold 36px sans-serif';
+        context.font = 'bold 36px small-caps sans-serif';
         context.fillStyle = '#000';
         context.outlineText(inputTextValue, 0, canvas.height * .8);
 
@@ -458,7 +458,6 @@ export default {
       context.drawImage(this.uploadImage, 0, 0, this.profileImage.width, this.profileImage.height);
 
       if (this.frames.index === -1) {
-
         this.botton.customDownload = true;
         this.botton.defaultDownload = false;
         this.inputTextValue = '';
@@ -473,6 +472,10 @@ export default {
     },
 
     downloadCustomImage: function() {
+      if (this.inputTextValue === '') {
+        alert('Please enter text.');
+        return false;
+      };
       let context = this.profileImage.getContext('2d');
       const width = this.custom.inputText.offsetWidth;
       const height = this.custom.inputText.offsetHeight;
@@ -488,8 +491,9 @@ export default {
       this.botton.defaultDownload = false;
 
       downloadLink = document.createElement('a');
-      downloadLink.download = 'cropped.jpg';
+      downloadLink.download = 'profile-picture.jpg';
       downloadLink.href = this.image.custom;
+      this.custom.textList.appendChild(downloadLink);
       downloadLink.click();
     },
 
