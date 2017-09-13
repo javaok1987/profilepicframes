@@ -111,7 +111,7 @@
       </div>
       <div class="row">
         <div class="col-md-9">
-          <div id="custom-wrap" @dragover.prevent @drop="dropping">
+          <div id="custom-wrap" @dragover.prevent @drop="dragEnd" @dragstart="dragStart">
             <canvas id="profile-image" width="400" height="400"></canvas>
             <div id="custom-container"></div>
           </div>
@@ -120,8 +120,7 @@
           <a v-if="botton.defaultDownload" class="btn download" :href="image.default" download="cropped.jpg">Download</a>
           <div v-if="botton.customDownload">
             <label for="">
-              <input type="text" placeholder="建立文字" v-model="inputTextValue" maxlength="10">
-              可調整圖片位置
+              <input type="text" placeholder="建立文字" v-model="inputTextValue" maxlength="10"> 可調整圖片位置
             </label>
             <a class="btn download" @click="downloadCustomImage">Download</a>
             <div id="custom-text-list"></div>
@@ -191,6 +190,10 @@ export default {
         textList: '',
       },
       inputTextValue: '',
+      mouse: {
+        positionX: '',
+        positionY: '',
+      }
     }
   },
   mounted() {
@@ -268,15 +271,22 @@ export default {
     },
 
 
-    dropping: function(e) {
-      this.custom.inputImage.style.top = `${e.layerY}px`;
-      this.custom.inputImage.style.left = `${e.layerX - this.custom.inputImage.width / 2}px`;
+    dragStart: function(e) {
+      this.mouse.positionX = e.clientX;
+      this.mouse.positionY = e.clientY;
+    },
+
+
+    dragEnd: function(e) {
+      this.custom.inputImage.style.top = `${parseInt(this.custom.inputImage.style.top || 0, 10) + (e.clientY - this.mouse.positionY)}px`;
+      this.custom.inputImage.style.left = `${parseInt(this.custom.inputImage.style.left || 0, 10) + (e.clientX - this.mouse.positionX)}px`;
     },
 
 
     customSelfCanvas: function(inputTextValue) {
 
       this.custom.textList = document.getElementById('custom-text-list');
+      if (!this.custom.textList) return;//WTF??
 
       let customInputText = document.createElement('div');
       customInputText.innerHTML = inputTextValue;
@@ -292,10 +302,10 @@ export default {
         let context = canvas.getContext('2d');
         let customImg = new Image();
 
-        canvas.width = this.custom.inputText.offsetWidth;
+        canvas.width = this.custom.inputText.offsetWidth + 10;
         canvas.height = this.custom.inputText.offsetHeight;
 
-        context.font = 'bold small-caps 36px sans-serif';
+        context.font = 'bold 36px sans-serif';
         context.fillStyle = '#000';
         context.outlineText(inputTextValue, 0, canvas.height * .8);
 
@@ -448,9 +458,10 @@ export default {
       context.drawImage(this.uploadImage, 0, 0, this.profileImage.width, this.profileImage.height);
 
       if (this.frames.index === -1) {
-        this.inputTextValue = '';
+
         this.botton.customDownload = true;
         this.botton.defaultDownload = false;
+        this.inputTextValue = '';
       } else {
         this.clearCustomDOMTree();
 

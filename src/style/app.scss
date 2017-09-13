@@ -252,8 +252,9 @@ img {
 
 .custom-input {
   font-family: 'sans-serif';
-  font-size: 38px;
+  font-size: 40px;
   font-weight: bold;
   display: inline-block;
+  white-space: nowrap;
   visibility: hidden;
 }
