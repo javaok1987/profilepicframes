@@ -2,7 +2,7 @@
 
 > 大頭貼照產生器
 
-## Build Setup
+## Quick start
 
 ``` bash
 # install dependencies
